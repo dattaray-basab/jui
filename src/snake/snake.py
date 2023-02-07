@@ -36,13 +36,6 @@ wn.onkeypress(go_down,"Down")
 wn.onkeypress(go_left,"Left")
 wn.onkeypress(go_right,"Right")
 
-
-
-
-
-
-
-
 # Main game loop
 while True:
     wn.update()
@@ -73,9 +66,6 @@ while True:
 
         fn_add_new_segment()
 
-        # new_segment = fn_create_new_segment()
-        # segments.append(new_segment)
-
         # Shorten the delay
         delay -= 0.001
 
@@ -89,19 +79,6 @@ while True:
 
         fn_expand_segment()
 
-    # # Move the end segment first in reverse order
-    # for index in range(len(segments)-1,0,-1):
-    #     x=segments[index-1].xcor()
-    #     y=segments[index-1].ycor()
-    #     segments[index].goto(x,y)
-    #
-    # # Move segment 0 to where the head is
-    # if len(segments)>0:
-    #     x=head.xcor()
-    #     y=head.ycor()
-    #     segments[0].goto(x,y)
-
-
     move()
 
     # Check for head collision with the body segments
@@ -113,13 +90,6 @@ while True:
             fn_stop_head()
 
             fn_reset_segments()
-
-            # # Hide the segments
-            # for segment in segments:
-            #     segment.goto(1000,1000)
-            #
-            # # Clear the segments list
-            # segments.clear()
 
             # Reset the score
             score = 0
