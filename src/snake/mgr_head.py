@@ -47,6 +47,15 @@ def head_mgt():
             x = head.xcor()
             head.setx( x + 20 )
 
+    def fn_does_head_collide_with_border():
+        if head.xcor() > 290 or head.xcor() < -290 or head.ycor() > 290 or head.ycor() < -290:
+            return True
+        return False
 
+    def fn_is_food_within_devourable_distance(food):
+        if head.distance( food ) < 20:
+            return True
+        return False
 
-    return head, fn_stop_head, go_up, go_down, go_left, go_right, move
+    return head, fn_stop_head, fn_does_head_collide_with_border, fn_is_food_within_devourable_distance,\
+        go_up, go_down, go_left, go_right, move
