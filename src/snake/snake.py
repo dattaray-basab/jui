@@ -36,6 +36,7 @@ pen.penup()
 pen.hideturtle()
 pen.goto(0,260)
 pen.write("Score: 0 High Score: 0", align="center", font=("Courier", 24, "normal"))
+
 def fn_write_score():
     pen.clear()
     pen.write( "Score: {}  High Score: {}".format( score, high_score ), align="center", font=("Courier", 24, "normal") )
@@ -107,9 +108,10 @@ while True:
         # Reset the delay
         delay = 0.1
 
-        pen.clear()
-        pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("Courier", 24, "normal"))
-
+        fn_write_score()
+        #
+        # pen.clear()
+        # pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("Courier", 24, "normal"))
 
 
     #Check for a collision with the food
@@ -173,9 +175,7 @@ while True:
             #Reset the delay
             delay = 0.1
 
-            pen.clear()
-            pen.write("Score: {}  High Score: {}".format(score, high_score), align="center",font=("Courier", 24, "normal"))
-
+            fn_write_score()
 
     time.sleep(delay)
 
