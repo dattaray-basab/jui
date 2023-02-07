@@ -17,54 +17,14 @@ high_score=0
 
 wn = win_mgt()
 
-head = head_mgt()
+head, go_up, go_down, go_left, go_right, move = head_mgt()
 
-# # Snake food
-# food=turtle.Turtle()
-# food.speed(0)
-# food.shape("circle")
-# food.color("red")
-# food.penup()
-# food.goto(0,100)
 food = food_mgt()
 
 segments=[]
 
 fn_write_score = pen_mgt()
 
-# Functions
-def go_up():
-    if head.direction != "down":
-        head.direction="up"
-
-def go_down():
-    if head.direction != "up":
-        head.direction="down"
-
-def go_left():
-    if head.direction != "right":
-        head.direction="left"
-
-def go_right():
-    if head.direction != "left":
-        head.direction="right"
-
-def move():
-    if head.direction == "up":
-        y=head.ycor()
-        head.sety(y+20)
-
-    if head.direction == "down":
-        y=head.ycor()
-        head.sety(y-20)
-
-    if head.direction == "left":
-        x=head.xcor()
-        head.setx(x-20)
-
-    if head.direction == "right":
-        x=head.xcor()
-        head.setx(x+20)
 
 # keyboard bindings
 wn.listen()
@@ -109,13 +69,9 @@ while True:
         delay = 0.1
 
         fn_write_score(score, high_score)
-        #
-        # pen.clear()
-        # pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("Courier", 24, "normal"))
 
 
     #Check for a collision with the food
-
     if head.distance(food)<20:
         # move the food to a random spot
         x=random.randint(-285,285)
