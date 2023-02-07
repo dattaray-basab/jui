@@ -16,10 +16,12 @@ delay = 0.1
 score=0
 high_score=0
 
-wn = win_mgt()
+
 
 head, fn_stop_head, fn_does_head_collide_with_border, fn_is_food_within_devourable_distance,\
     go_up, go_down, go_left, go_right, move = head_mgt()
+
+wn = win_mgt(go_up, go_down, go_left, go_right,)
 
 food = food_mgt()
 
@@ -28,13 +30,6 @@ fn_add_new_segment, fn_expand_segment, fn_reset_segments, fn_get_segments = segm
 
 fn_write_score = pen_mgt()
 
-
-# keyboard bindings
-wn.listen()
-wn.onkeypress(go_up,"Up")
-wn.onkeypress(go_down,"Down")
-wn.onkeypress(go_left,"Left")
-wn.onkeypress(go_right,"Right")
 
 # Main game loop
 while True:
@@ -58,7 +53,7 @@ while True:
 
 
     #Check for a collision with the food
-    if head.distance(food)<20:
+    if fn_is_food_within_devourable_distance(food):
         # move the food to a random spot
         x=random.randint(-285,285)
         y=random.randint(-285,285)
