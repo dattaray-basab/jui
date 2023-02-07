@@ -4,6 +4,7 @@ import turtle
 import time
 import random
 
+from src.snake.mgr_head import head_mgt
 from src.snake.mgr_wn import win_mgt
 
 delay = 0.1
@@ -14,14 +15,7 @@ high_score=0
 
 wn = win_mgt()
 
-# Snake head
-head=turtle.Turtle()
-head.speed(0)
-head.shape("square")
-head.color("black")
-head.penup()
-head.goto(0,0)
-head.direction="stop"
+head = head_mgt()
 
 # Snake food
 food=turtle.Turtle()
