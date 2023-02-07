@@ -18,12 +18,12 @@ high_score=0
 
 
 
-head, fn_stop_head, fn_does_head_collide_with_border, fn_is_food_within_devourable_distance,\
+head, fn_stop_head, fn_does_head_collide_with_border, fn_is_food_within_devourable_distance, fn_reset_head, \
     go_up, go_down, go_left, go_right, move = head_mgt()
 
-wn = win_mgt(go_up, go_down, go_left, go_right,)
+update_window = win_mgt(go_up, go_down, go_left, go_right,)
 
-food = food_mgt()
+food = food_mgt(color='blue')
 
 # segments=[]
 fn_add_new_segment, fn_expand_segment, fn_reset_segments, fn_get_segments = segments_mgr(head)
@@ -33,12 +33,12 @@ fn_write_score = pen_mgt()
 
 # Main game loop
 while True:
-    wn.update()
+    update_window()
 
     # Check for a collision with the border
     if fn_does_head_collide_with_border():
         time.sleep(1)
-        head.goto(0,0)
+        fn_reset_head()
         fn_stop_head()
 
         fn_reset_segments()
@@ -81,7 +81,9 @@ while True:
     for segment in segments:
         if fn_is_food_within_devourable_distance(food):
             time.sleep(1)
-            head.goto(0,0)
+            
+            fn_reset_head(0, 0)
+            
             fn_stop_head()
 
             fn_reset_segments()

@@ -10,6 +10,8 @@ def win_mgt(go_up, go_down, go_left, go_right):
     wn.onkeypress( go_left, "Left" )
     wn.onkeypress( go_right, "Right" )
 
+    def update_window():
+        wn.update()
     def fn_create_screen(color="green", title="Snake Game by Jui", width=600, height=600):
 
         wn.title(title)
@@ -20,4 +22,4 @@ def win_mgt(go_up, go_down, go_left, go_right):
 
     fn_create_screen(title="Snake Game played by Anik")
 
-    return wn
+    return update_window

@@ -46,6 +46,9 @@ def head_mgt():
         if head.direction == "right":
             x = head.xcor()
             head.setx( x + 20 )
+            
+    def fn_reset_head():
+        head.goto(0, 0)
 
     def fn_does_head_collide_with_border():
         if head.xcor() > 290 or head.xcor() < -290 or head.ycor() > 290 or head.ycor() < -290:
@@ -57,5 +60,11 @@ def head_mgt():
             return True
         return False
 
-    return head, fn_stop_head, fn_does_head_collide_with_border, fn_is_food_within_devourable_distance,\
+    return head, \
+        fn_stop_head, \
+        fn_does_head_collide_with_border, \
+        fn_is_food_within_devourable_distance, \
+        fn_reset_head, \
         go_up, go_down, go_left, go_right, move
+    
+        
