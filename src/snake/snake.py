@@ -4,6 +4,7 @@ import turtle
 import time
 import random
 
+from src.snake.mgr_food import food_mgt
 from src.snake.mgr_head import head_mgt
 from src.snake.mgr_pen import pen_mgt
 from src.snake.mgr_wn import win_mgt
@@ -18,13 +19,14 @@ wn = win_mgt()
 
 head = head_mgt()
 
-# Snake food
-food=turtle.Turtle()
-food.speed(0)
-food.shape("circle")
-food.color("red")
-food.penup()
-food.goto(0,100)
+# # Snake food
+# food=turtle.Turtle()
+# food.speed(0)
+# food.shape("circle")
+# food.color("red")
+# food.penup()
+# food.goto(0,100)
+food = food_mgt()
 
 segments=[]
 
