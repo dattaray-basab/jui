@@ -4,18 +4,15 @@ import turtle
 import time
 import random
 
+from src.snake.mgr_wn import win_mgt
+
 delay = 0.1
 
 # Score
 score=0
 high_score=0
 
-# set up the screen
-wn=turtle.Screen()
-wn.title("Snake Game by Mahesh Sawant")
-wn.bgcolor("green")
-wn.setup(width=600, height=600)
-wn.tracer(0)
+wn = win_mgt()
 
 # Snake head
 head=turtle.Turtle()
