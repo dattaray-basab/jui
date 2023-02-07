@@ -11,6 +11,6 @@ def win_mgt():
         wn.tracer(0)
         return wn
 
-    fn_create_screen()
+    fn_create_screen(title="Snake Game played by Anik")
 
     return wn
