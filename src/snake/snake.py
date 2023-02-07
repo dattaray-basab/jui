@@ -28,20 +28,6 @@ food.goto(0,100)
 
 segments=[]
 
-# # Pen
-# pen=turtle.Turtle()
-# pen.speed(0)
-# pen.shape("square")
-# pen.color("white")
-# pen.penup()
-# pen.hideturtle()
-# pen.goto(0,260)
-# pen.write("Score: 0 High Score: 0", align="center", font=("Courier", 24, "normal"))
-#
-# def fn_write_score():
-#     pen.clear()
-#     pen.write( "Score: {}  High Score: {}".format( score, high_score ), align="center", font=("Courier", 24, "normal") )
-
 fn_write_score = pen_mgt()
 
 # Functions
@@ -86,6 +72,16 @@ wn.onkeypress(go_left,"Left")
 wn.onkeypress(go_right,"Right")
 
 
+def fn_create_new_segment():
+    # Add a segment
+    new_segment = turtle.Turtle()
+    new_segment.speed( 0 )
+    new_segment.shape( "square" )
+    new_segment.color( "grey" )
+    new_segment.penup()
+
+    return new_segment
+
 
 # Main game loop
 while True:
@@ -124,12 +120,7 @@ while True:
         y=random.randint(-285,285)
         food.goto(x,y)
 
-        # Add a segment
-        new_segment=turtle.Turtle()
-        new_segment.speed(0)
-        new_segment.shape("square")
-        new_segment.color("grey")
-        new_segment.penup()
+        new_segment = fn_create_new_segment()
         segments.append(new_segment)
 
         # Shorten the delay
