@@ -17,7 +17,7 @@ high_score=0
 
 wn = win_mgt()
 
-head, go_up, go_down, go_left, go_right, move = head_mgt()
+head, fn_stop_head, go_up, go_down, go_left, go_right, move = head_mgt()
 
 food = food_mgt()
 
@@ -45,6 +45,9 @@ def fn_create_new_segment():
     return new_segment
 
 
+
+
+
 # Main game loop
 while True:
     wn.update()
@@ -53,7 +56,7 @@ while True:
     if head.xcor()>290 or head.xcor()<-290 or head.ycor()>290 or head.ycor()<-290:
         time.sleep(1)
         head.goto(0,0)
-        head.direction="stop"
+        fn_stop_head()
 
         # Hide the segments
         for segment in segments:
@@ -111,7 +114,7 @@ while True:
         if segment.distance(head)<20:
             time.sleep(1)
             head.goto(0,0)
-            head.direction="stop"
+            fn_stop_head()
 
             # Hide the segments
             for segment in segments:

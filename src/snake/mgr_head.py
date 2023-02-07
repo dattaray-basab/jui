@@ -11,6 +11,8 @@ def head_mgt():
     head.goto( 0, 0 )
     head.direction = "stop"
 
+    def fn_stop_head():
+        head.direction = "stop"
     # Functions
     def go_up():
         if head.direction != "down":
@@ -47,4 +49,4 @@ def head_mgt():
 
 
 
-    return head, go_up, go_down, go_left, go_right, move
+    return head, fn_stop_head, go_up, go_down, go_left, go_right, move
