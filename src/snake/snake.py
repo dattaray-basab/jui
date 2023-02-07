@@ -5,6 +5,7 @@ import time
 import random
 
 from src.snake.mgr_head import head_mgt
+from src.snake.mgr_pen import pen_mgt
 from src.snake.mgr_wn import win_mgt
 
 delay = 0.1
@@ -27,20 +28,21 @@ food.goto(0,100)
 
 segments=[]
 
-# Pen
-pen=turtle.Turtle()
-pen.speed(0)
-pen.shape("square")
-pen.color("white")
-pen.penup()
-pen.hideturtle()
-pen.goto(0,260)
-pen.write("Score: 0 High Score: 0", align="center", font=("Courier", 24, "normal"))
+# # Pen
+# pen=turtle.Turtle()
+# pen.speed(0)
+# pen.shape("square")
+# pen.color("white")
+# pen.penup()
+# pen.hideturtle()
+# pen.goto(0,260)
+# pen.write("Score: 0 High Score: 0", align="center", font=("Courier", 24, "normal"))
+#
+# def fn_write_score():
+#     pen.clear()
+#     pen.write( "Score: {}  High Score: {}".format( score, high_score ), align="center", font=("Courier", 24, "normal") )
 
-def fn_write_score():
-    pen.clear()
-    pen.write( "Score: {}  High Score: {}".format( score, high_score ), align="center", font=("Courier", 24, "normal") )
-
+fn_write_score = pen_mgt()
 
 # Functions
 def go_up():
@@ -108,7 +110,7 @@ while True:
         # Reset the delay
         delay = 0.1
 
-        fn_write_score()
+        fn_write_score(score, high_score)
         #
         # pen.clear()
         # pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("Courier", 24, "normal"))
@@ -139,7 +141,7 @@ while True:
         if score > high_score:
             high_score = score
 
-        fn_write_score()
+        fn_write_score( score, high_score )
 
     # Move the end segment first in reverse order
     for index in range(len(segments)-1,0,-1):
